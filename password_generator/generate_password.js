@@ -23,14 +23,14 @@ function generatePassword(req) {
     }
   }
 
-  // 扣光的情況
+  // 什麼都沒填/有長度沒選項/扣光的情況
   if (picked.length == 0) return;
 
   // generate
   for (let i = 0; i < length; i++) {
     password += picked.charAt(Math.floor(Math.random() * picked.length));
   }
-  
+
   return password;
 }
 

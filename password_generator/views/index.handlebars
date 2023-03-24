@@ -109,7 +109,11 @@
                   appear in the password</small>
               </div>
             </div>
-
+            {{#if password}}
+              <div class="alert alert-info" role="alert">
+                <span class="mr-2">Your password is:</span> <code>{{password}}</code>
+              </div>
+            {{/if}}
             <button class="btn btn-success" type="submit">Generate Password</button>
           </form>
         </div>
