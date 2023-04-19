@@ -49,6 +49,14 @@ app.post('/todos', (req, res) => {
   //   .catch(error => console.log(error));
 });
 
+app.get('/todos/:id', (req, res) => {
+  const id = req.params.id;
+  Todo.findById(id)
+    .lean()
+    .then(todo => res.render('detail', { todo }))
+    .catch(err => console.error(err));
+});
+
 app.listen(3000, () => {
   console.log('app running on http://localhost:3000');
 });
