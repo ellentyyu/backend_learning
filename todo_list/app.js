@@ -77,6 +77,17 @@ app.post('/todos/:id/edit', (req, res) => {
     .catch(err => console.error(err));
 });
 
+app.post('/todos/:id/delete', (req, res) => {
+  const id = req.params.id;
+  Todo.findById(id)
+    .then(todo => todo.remove())
+    .then(() => {
+      console.log('刪除成功');
+      res.redirect('/')
+    })
+    .catch(err => console.error(err));
+});
+
 app.listen(3000, () => {
   console.log('app running on http://localhost:3000');
 });
